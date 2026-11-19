@@ -2,7 +2,7 @@
 import { BLOQUE3_CONFIG, buildWhatsAppUrl } from "../data/bloque3";
 
 const devWhatsAppUrl = buildWhatsAppUrl(
-  "Hola Bloque3, soy desarrollador y me gustaría hablar para colaborar en proyectos o ideas."
+  "Hola Bloque3, quiero conversar para contribuir en sus proyectos o explorar una idea juntos."
 );
 ---
 
@@ -11,21 +11,43 @@ const devWhatsAppUrl = buildWhatsAppUrl(
     <div class="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
       <div class="lg:col-span-5 space-y-6">
         <div class="space-y-3">
-          <p class="font-mono text-xs tracking-wider uppercase text-signal font-medium">
-            04 / Desarrolladores &amp; Ideas de Negocio
+          <p class="inline-flex items-center gap-2 font-mono text-xs tracking-wider uppercase text-signal-deep font-medium">
+            <span class="inline-block w-2 h-2 bg-signal border border-ink"></span>
+            <span>04 / Contribuir en Bloque3</span>
           </p>
           <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight text-ink">
-            ¿Construyes software o quieres proponer un proyecto juntos?
+            ¿Cómo quieres contribuir?
           </h2>
         </div>
 
         <p class="text-base text-ink-muted leading-relaxed">
-          Bloque3 nació para unir amigos y desarrolladores con ganas de sacar productos reales adelante. Si programas, diseñas o tienes una idea con potencial comercial, hablemos.
+          <strong class="text-ink font-medium">Bloque3 no es una empresa ni tenemos presupuesto para contratar por nómina.</strong> Somos un grupo independiente construyendo herramientas para desarrolladores, juegos y productos digitales propios — algunos serán <strong class="text-ink font-medium">open source</strong> y otros serán <strong class="text-ink font-medium">cerrados o comerciales</strong>.
         </p>
 
-        <div class="space-y-3 pt-1">
+        <div class="border-t border-b border-rule divide-y divide-rule">
+          <div class="py-3.5 flex items-start gap-3">
+            <span class="font-mono text-xs bg-ink text-signal px-1.5 py-0.5">01</span>
+            <p class="text-sm text-ink">
+              <strong>Aportes open source:</strong> mejoras, módulos o fixes en herramientas que abrimos a la comunidad.
+            </p>
+          </div>
+          <div class="py-3.5 flex items-start gap-3">
+            <span class="font-mono text-xs bg-ink text-signal px-1.5 py-0.5">02</span>
+            <p class="text-sm text-ink">
+              <strong>Co-creación de juegos o herramientas dev:</strong> sumarte como par/coautor en iniciativas propias desde cero.
+            </p>
+          </div>
+          <div class="py-3.5 flex items-start gap-3">
+            <span class="font-mono text-xs bg-ink text-signal px-1.5 py-0.5">03</span>
+            <p class="text-sm text-ink">
+              <strong>Ideas de negocio o alianzas por proyecto:</strong> construir juntos un MVP o colaborar cuando sale un encargo puntual.
+            </p>
+          </div>
+        </div>
+
+        <div class="space-y-2.5">
           <p class="font-mono text-xs uppercase tracking-wider text-ink-muted">
-            Frentes técnicos habituales
+            Tecnologías con las que solemos trabajar
           </p>
           <div class="flex flex-wrap gap-2">
             {
@@ -48,7 +70,7 @@ const devWhatsAppUrl = buildWhatsAppUrl(
 
         <div class="pt-3 border-t border-rule">
           <p class="text-sm text-ink-muted mb-3">
-            ¿Prefieres escribir directamente sin llenar el formulario?
+            ¿Prefieres hablar directo para contarnos cómo te gustaría aportar?
           </p>
           <a
             href={devWhatsAppUrl}
@@ -63,12 +85,17 @@ const devWhatsAppUrl = buildWhatsAppUrl(
       </div>
 
       <div class="lg:col-span-7 bg-paper border border-ink p-6 sm:p-8">
-        <div class="pb-5 mb-6 border-b border-rule flex items-center justify-between gap-4">
-          <h3 class="font-display font-bold text-xl text-ink">
-            Postulación para desarrolladores
-          </h3>
-          <span class="font-mono text-[11px] uppercase tracking-wider text-ink-muted">
-            COLABORACIÓN / EQUIPO
+        <div class="pb-5 mb-6 border-b border-rule flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <h3 class="font-display font-bold text-xl text-ink">
+              Cuéntanos cómo quieres contribuir
+            </h3>
+            <p class="text-xs text-ink-muted mt-1">
+              Colaboración independiente / co-creación — no es una oferta de empleo salariado.
+            </p>
+          </div>
+          <span class="font-mono text-[11px] uppercase tracking-wider bg-ink text-signal px-2.5 py-1">
+            COLABORACIÓN ABIERTA
           </span>
         </div>
 
@@ -78,7 +105,7 @@ const devWhatsAppUrl = buildWhatsAppUrl(
           method="POST"
           class="space-y-5"
         >
-          <input type="hidden" name="_subject" value="[Bloque3] Postulación Desarrollador / Idea" />
+          <input type="hidden" name="_subject" value="[Bloque3] Nueva propuesta de contribución" />
           <input type="hidden" name="_template" value="table" />
           <input type="hidden" name="_captcha" value="false" />
           <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off" />
@@ -86,7 +113,7 @@ const devWhatsAppUrl = buildWhatsAppUrl(
           <div class="grid sm:grid-cols-2 gap-4">
             <div>
               <label for="dev-name" class="block font-mono text-xs uppercase tracking-wider text-ink-muted mb-1.5">
-                Nombre *
+                Nombre o alias *
               </label>
               <input
                 id="dev-name"
@@ -115,8 +142,27 @@ const devWhatsAppUrl = buildWhatsAppUrl(
 
           <div class="grid sm:grid-cols-2 gap-4">
             <div>
+              <label for="dev-contribution" class="block font-mono text-xs uppercase tracking-wider text-ink-muted mb-1.5">
+                ¿Cómo quieres contribuir? *
+              </label>
+              <select
+                id="dev-contribution"
+                name="como_contribuir"
+                required
+                class="w-full px-3.5 py-2.5 bg-paper-alt/40 border border-rule text-sm text-ink"
+              >
+                <option value="">Selecciona una modalidad</option>
+                <option value="Aportar en proyectos open source">Aportar en proyectos open source</option>
+                <option value="Co-crear herramientas para desarrolladores">Co-crear herramientas para desarrolladores</option>
+                <option value="Colaborar en juegos o simuladores">Colaborar en juegos o simuladores</option>
+                <option value="Construir juntos una idea de negocio / MVP">Construir juntos una idea de negocio / MVP</option>
+                <option value="Colaborar por proyecto (web / automatización)">Colaborar por proyecto (web / automatización)</option>
+              </select>
+            </div>
+
+            <div>
               <label for="dev-role" class="block font-mono text-xs uppercase tracking-wider text-ink-muted mb-1.5">
-                Área principal *
+                Área o perfil *
               </label>
               <select
                 id="dev-role"
@@ -124,14 +170,29 @@ const devWhatsAppUrl = buildWhatsAppUrl(
                 required
                 class="w-full px-3.5 py-2.5 bg-paper-alt/40 border border-rule text-sm text-ink"
               >
-                <option value="">Selecciona una opción</option>
+                <option value="">Selecciona un área</option>
                 <option value="Backend / APIs / Cloud">Backend / APIs / Cloud</option>
                 <option value="Mobile (Flutter / Android)">Mobile (Flutter / Android)</option>
                 <option value="Frontend / Web (Astro / Angular / React)">Frontend / Web (Astro / Angular / React)</option>
                 <option value="Automatización (n8n / Python / IA)">Automatización (n8n / Python / IA)</option>
-                <option value="Diseño UI/UX">Diseño UI/UX</option>
-                <option value="Idea de negocio / Producto">Tengo una idea de negocio</option>
+                <option value="Game dev / Simulación / Gráficos">Game dev / Simulación / Gráficos</option>
+                <option value="Diseño UI/UX / Arte">Diseño UI/UX / Arte</option>
               </select>
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label for="dev-github" class="block font-mono text-xs uppercase tracking-wider text-ink-muted mb-1.5">
+                GitHub, portafolio o LinkedIn
+              </label>
+              <input
+                id="dev-github"
+                name="portafolio"
+                type="url"
+                placeholder="https://github.com/tu-usuario"
+                class="w-full px-3.5 py-2.5 bg-paper-alt/40 border border-rule text-sm text-ink"
+              />
             </div>
 
             <div>
@@ -149,28 +210,15 @@ const devWhatsAppUrl = buildWhatsAppUrl(
           </div>
 
           <div>
-            <label for="dev-github" class="block font-mono text-xs uppercase tracking-wider text-ink-muted mb-1.5">
-              GitHub, portafolio o LinkedIn
-            </label>
-            <input
-              id="dev-github"
-              name="portafolio"
-              type="url"
-              placeholder="https://github.com/tu-usuario"
-              class="w-full px-3.5 py-2.5 bg-paper-alt/40 border border-rule text-sm text-ink"
-            />
-          </div>
-
-          <div>
             <label for="dev-message" class="block font-mono text-xs uppercase tracking-wider text-ink-muted mb-1.5">
-              ¿Qué manejas y en qué te gustaría participar? *
+              ¿Qué te llama la atención construir o en qué proyecto quieres aportar? *
             </label>
             <textarea
               id="dev-message"
               name="mensaje"
               rows="3"
               required
-              placeholder="Cuéntanos brevemente tu stack, proyectos previos o la idea que quieres construir."
+              placeholder="Cuéntanos tu stack, qué tipo de herramientas o juegos te interesa hacer, o qué idea quieres proponer."
               class="w-full px-3.5 py-2.5 bg-paper-alt/40 border border-rule text-sm text-ink"
             ></textarea>
           </div>
@@ -180,9 +228,9 @@ const devWhatsAppUrl = buildWhatsAppUrl(
           <div class="pt-1 flex flex-wrap items-center justify-between gap-4">
             <button
               type="submit"
-              class="inline-flex items-center gap-2 bg-signal hover:bg-signal-dark text-white font-medium text-sm sm:text-base px-6 py-3.5 transition-colors cursor-pointer"
+              class="inline-flex items-center gap-2 bg-signal hover:bg-signal-lime text-obsidian-deep border border-ink font-semibold text-sm sm:text-base px-6 py-3.5 transition-colors cursor-pointer"
             >
-              Enviar postulación →
+              Enviar propuesta de contribución →
             </button>
             <span class="font-mono text-[11px] text-ink-muted">
               Respuesta directa a tu correo o WhatsApp

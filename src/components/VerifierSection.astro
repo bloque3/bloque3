@@ -7,8 +7,9 @@ import { BLOQUE3_CONFIG } from "../data/bloque3";
     <div class="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
       <div class="lg:col-span-5 space-y-6">
         <div class="space-y-3">
-          <p class="font-mono text-xs tracking-wider uppercase text-signal font-medium">
-            03 / Programa de Verificadores Google Play
+          <p class="inline-flex items-center gap-2 font-mono text-xs tracking-wider uppercase text-signal-deep font-medium">
+            <span class="inline-block w-2 h-2 bg-signal border border-ink"></span>
+            <span>03 / Programa de Verificadores Google Play</span>
           </p>
           <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight text-ink">
             Ayúdanos a probar nuevas apps Android antes de su lanzamiento.
@@ -16,24 +17,24 @@ import { BLOQUE3_CONFIG } from "../data/bloque3";
         </div>
 
         <p class="text-base text-ink-muted leading-relaxed">
-          Para publicar aplicaciones como <strong class="text-ink font-medium">ByteLab</strong> en Google Play, las cuentas requieren un grupo real de verificadores en pruebas cerradas durante 14 días. Buscamos personas con Android dispuestas a instalar la app y contarnos si encuentran fallos.
+          Para publicar aplicaciones como <strong class="text-ink font-medium">ByteLab</strong> o nuestros próximos juegos en Google Play, necesitamos un grupo real de verificadores en pruebas cerradas durante 14 días. Buscamos personas con Android dispuestas a probar la app y reportar fallos.
         </p>
 
         <div class="border-t border-b border-rule divide-y divide-rule">
           <div class="py-3.5 flex items-start gap-3">
-            <span class="font-mono text-xs text-signal pt-0.5">01</span>
+            <span class="font-mono text-xs bg-ink text-signal px-1.5 py-0.5">01</span>
             <p class="text-sm text-ink">
               Registras tu correo Gmail de Google Play y tu canal de contacto.
             </p>
           </div>
           <div class="py-3.5 flex items-start gap-3">
-            <span class="font-mono text-xs text-signal pt-0.5">02</span>
+            <span class="font-mono text-xs bg-ink text-signal px-1.5 py-0.5">02</span>
             <p class="text-sm text-ink">
               Te habilitamos en la pista cerrada y te enviamos el enlace oficial de Play Store.
             </p>
           </div>
           <div class="py-3.5 flex items-start gap-3">
-            <span class="font-mono text-xs text-signal pt-0.5">03</span>
+            <span class="font-mono text-xs bg-ink text-signal px-1.5 py-0.5">03</span>
             <p class="text-sm text-ink">
               Mantienes la app instalada 14 días (apps ligeras, sin anuncios ni permisos invasivos).
             </p>
@@ -46,7 +47,7 @@ import { BLOQUE3_CONFIG } from "../data/bloque3";
           <h3 class="font-display font-bold text-xl text-ink">
             Registro de verificador
           </h3>
-          <span class="font-mono text-[11px] uppercase tracking-wider text-ink-muted">
+          <span class="font-mono text-[11px] uppercase tracking-wider bg-ink text-signal px-2.5 py-1">
             CLOSED TESTING · 14 DÍAS
           </span>
         </div>
@@ -140,7 +141,7 @@ import { BLOQUE3_CONFIG } from "../data/bloque3";
               name="compromiso_14_dias"
               value="Sí, confirmo disponibilidad"
               required
-              class="mt-1 w-4 h-4 accent-signal shrink-0"
+              class="mt-1 w-4 h-4 accent-ink shrink-0"
             />
             <span class="text-sm text-ink-muted leading-snug">
               Confirmo que el correo ingresado corresponde a mi cuenta de Google Play y puedo mantener la aplicación instalada al menos 14 días.
@@ -152,7 +153,7 @@ import { BLOQUE3_CONFIG } from "../data/bloque3";
           <div class="pt-1 flex flex-wrap items-center justify-between gap-4">
             <button
               type="submit"
-              class="inline-flex items-center gap-2 bg-ink hover:bg-signal text-paper font-medium text-sm sm:text-base px-6 py-3.5 transition-colors cursor-pointer"
+              class="inline-flex items-center gap-2 bg-ink hover:bg-signal hover:text-obsidian-deep border border-ink text-paper font-medium text-sm sm:text-base px-6 py-3.5 transition-colors cursor-pointer"
             >
               Postularme como verificador →
             </button>

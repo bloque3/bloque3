@@ -6,12 +6,12 @@ Sitio web corporativo y portal de contacto de **Bloque3**, construido con **Astr
 
 - **Servicios y consulta vía WhatsApp (`+57 301 269 5248`)**: generador interactivo de mensaje para consultas sobre automatización de procesos, sitios web o ideas de negocio.
 - **Portafolio oficial**:
-  - **ByteLab** (`byte-lab`)
-  - **Acumulapp** (`acumulapp-mobile`)
-  - **Synapse Labs** (`idle-game`)
-  - **Agéndate (Appointify)** (`appointment-api`)
+  - **ByteLab** (`bloque3/byte-lab`)
+  - **Acumulapp** (`bloque3/acumulapp`)
+  - **Synapse Labs** (`bloque3/idle-game`)
+  - **Agéndate (Appointify)** (`bloque3/appointments`)
 - **Formulario de Verificadores de Google Play**: registro sin backend para pruebas cerradas de 14 días.
-- **Formulario de Desarrolladores**: postulación para colaborar en productos, desarrollo o ideas de negocio.
+- **Formulario de Contribución**: espacio abierto para colaborar en herramientas dev, juegos o proyectos (open source o comerciales).
 
 ## Desarrollo local
 

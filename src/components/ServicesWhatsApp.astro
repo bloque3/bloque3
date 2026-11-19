@@ -10,11 +10,12 @@ const initialWaHref = buildWhatsAppUrl(initialPreview);
   <div class="max-w-7xl mx-auto px-5 sm:px-8 py-16 sm:py-24">
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-10 border-b border-rule">
       <div class="space-y-3 max-w-2xl">
-        <p class="font-mono text-xs tracking-wider uppercase text-signal font-medium">
-          01 / Servicios &amp; Consulta Vía WhatsApp
+        <p class="inline-flex items-center gap-2 font-mono text-xs tracking-wider uppercase text-signal-deep font-medium">
+          <span class="inline-block w-2 h-2 bg-signal border border-ink"></span>
+          <span>01 / Servicios &amp; Consulta Vía WhatsApp</span>
         </p>
         <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight text-ink">
-          Automatización, sitios web y desarrollo a medida sin rodeos.
+          Automatización, sitios web y software sin rodeos.
         </h2>
       </div>
       <p class="text-sm text-ink-muted max-w-sm leading-relaxed">
@@ -28,8 +29,8 @@ const initialWaHref = buildWhatsAppUrl(initialPreview);
           SERVICES.map((service) => (
             <article class="p-6 sm:p-7 grid sm:grid-cols-12 gap-4 sm:gap-6">
               <div class="sm:col-span-2">
-                <span class="font-mono text-xs font-medium text-signal tracking-wider">
-                  [{service.index}]
+                <span class="inline-block font-mono text-xs font-medium bg-ink text-signal px-2 py-0.5 tracking-wider">
+                  {service.index}
                 </span>
               </div>
               <div class="sm:col-span-10 space-y-3">
@@ -42,7 +43,7 @@ const initialWaHref = buildWhatsAppUrl(initialPreview);
                 <ul class="pt-1 space-y-1.5">
                   {service.deliverables.map((item) => (
                     <li class="flex items-start gap-2.5 text-sm text-ink">
-                      <span class="font-mono text-signal shrink-0">—</span>
+                      <span class="font-mono text-signal-deep font-bold shrink-0">—</span>
                       <span>{item}</span>
                     </li>
                   ))}
@@ -67,7 +68,7 @@ const initialWaHref = buildWhatsAppUrl(initialPreview);
               Escríbenos por WhatsApp
             </h3>
           </div>
-          <span class="font-mono text-xs px-2.5 py-1 bg-paper-alt border border-rule text-ink">
+          <span class="font-mono text-xs px-2.5 py-1 bg-ink text-signal">
             {BLOQUE3_CONFIG.whatsappDisplay}
           </span>
         </div>
@@ -94,7 +95,7 @@ const initialWaHref = buildWhatsAppUrl(initialPreview);
                   <span class="block text-sm font-medium leading-tight">{intent.label}</span>
                   <span
                     class={`block font-mono text-[10px] mt-1 ${
-                      idx === 0 ? "text-paper/75" : "text-ink-muted"
+                      idx === 0 ? "text-signal" : "text-ink-muted"
                     }`}
                   >
                     {intent.tag}
@@ -145,7 +146,7 @@ const initialWaHref = buildWhatsAppUrl(initialPreview);
             href={initialWaHref}
             target="_blank"
             rel="noopener noreferrer"
-            class="w-full inline-flex items-center justify-center gap-2.5 bg-signal hover:bg-signal-dark text-white font-medium text-sm sm:text-base px-5 py-3.5 transition-colors"
+            class="w-full inline-flex items-center justify-center gap-2.5 bg-signal hover:bg-signal-lime text-obsidian-deep border border-ink font-semibold text-sm sm:text-base px-5 py-3.5 transition-colors"
           >
             <span>Abrir chat en WhatsApp</span>
             <span aria-hidden="true">↗</span>
@@ -207,7 +208,7 @@ const initialWaHref = buildWhatsAppUrl(initialPreview);
       btn.className =
         "wa-intent-btn text-left p-3 border transition-colors cursor-pointer border-ink bg-ink text-paper";
       const sub = btn.querySelector("span:last-child");
-      if (sub) sub.className = "block font-mono text-[10px] mt-1 text-paper/75";
+      if (sub) sub.className = "block font-mono text-[10px] mt-1 text-signal";
 
       const topic = btn.getAttribute("data-default-topic");
       const placeholder = btn.getAttribute("data-placeholder");

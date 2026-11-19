@@ -8,7 +8,7 @@ interface Props {
 }
 
 const {
-  title = "Bloque3 — Software, Automatización y Productos Digitales",
+  title = "Bloque3 — Colectivo de Software, Automatización y Productos Digitales",
   description = BLOQUE3_CONFIG.tagline,
 } = Astro.props;
 
@@ -24,13 +24,14 @@ const baseUrl = import.meta.env.BASE_URL.endsWith("/")
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#111214" />
+    <meta name="theme-color" content="#0F3557" />
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:locale" content="es_CO" />
 
+    <link rel="icon" type="image/png" href={`${baseUrl}bloque3-logo.png`} />
     <link rel="icon" type="image/svg+xml" href={`${baseUrl}favicon.svg`} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -40,7 +41,7 @@ const baseUrl = import.meta.env.BASE_URL.endsWith("/")
       rel="stylesheet"
     />
   </head>
-  <body class="bg-paper text-ink min-h-screen flex flex-col selection:bg-signal selection:text-white">
+  <body class="bg-paper text-ink min-h-screen flex flex-col selection:bg-signal selection:text-obsidian-deep">
     <slot />
   </body>
 </html>

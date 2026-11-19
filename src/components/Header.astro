@@ -13,30 +13,24 @@ const navItems = [
   { label: "Servicios", href: `${baseUrl}#servicios` },
   { label: "Proyectos", href: `${baseUrl}#proyectos` },
   { label: "Verificadores", href: `${baseUrl}#verificadores` },
-  { label: "Desarrolladores", href: `${baseUrl}#desarrolladores` },
+  { label: "Contribuir", href: `${baseUrl}#desarrolladores` },
 ];
 ---
 
 <header class="sticky top-0 z-40 border-b border-rule bg-paper/92 backdrop-blur-md">
   <div class="max-w-7xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between gap-4">
     <a href={baseUrl} class="inline-flex items-center gap-3 group" aria-label="Inicio Bloque3">
-      <svg
-        width="28"
-        height="28"
-        viewBox="0 0 64 64"
-        fill="none"
-        aria-hidden="true"
-        class="transition-transform duration-200 group-hover:scale-105"
-      >
-        <rect width="64" height="64" rx="8" fill="#111214" />
-        <rect x="12" y="13" width="17" height="17" rx="2" fill="#F3F0E8" />
-        <rect x="35" y="13" width="17" height="17" rx="2" fill="#D9481E" />
-        <rect x="12" y="34" width="40" height="17" rx="2" fill="#F3F0E8" />
-      </svg>
+      <img
+        src={`${baseUrl}bloque3-logo.png`}
+        alt="Logo oficial de Bloque3"
+        width="32"
+        height="32"
+        class="w-8 h-8 rounded-md object-cover border border-ink/15 transition-transform duration-200 group-hover:scale-105"
+      />
       <div class="flex items-baseline gap-2">
         <span class="font-display font-bold text-lg tracking-tight text-ink">BLOQUE3</span>
         <span class="hidden sm:inline font-mono text-[11px] text-ink-muted tracking-wider uppercase">
-          // LAB & STUDIO
+          // COLECTIVO &amp; LAB
         </span>
       </div>
     </a>
@@ -54,7 +48,7 @@ const navItems = [
       }
     </nav>
 
-    <div class="flex items-center gap-3">
+    <div class="flex items-center gap-2.5">
       <a
         href={BLOQUE3_CONFIG.githubOrgUrl}
         target="_blank"
@@ -67,7 +61,7 @@ const navItems = [
         href={quickWaUrl}
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 bg-ink text-paper hover:bg-signal transition-colors text-xs sm:text-sm font-medium px-4 py-2"
+        class="inline-flex items-center gap-2 bg-ink text-paper hover:bg-signal hover:text-obsidian-deep border border-ink transition-colors text-xs sm:text-sm font-medium px-4 py-2"
       >
         <span>WhatsApp</span>
         <span aria-hidden="true">↗</span>

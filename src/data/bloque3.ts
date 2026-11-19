@@ -1,6 +1,7 @@
 export const BLOQUE3_CONFIG = {
   brand: "Bloque3",
-  tagline: "Estudio de ingeniería de software, automatización y productos propios.",
+  tagline:
+    "Colectivo independiente de ingeniería: herramientas para desarrolladores, juegos, automatización de procesos y desarrollo web.",
   email: "crincones578@gmail.com",
   whatsappDigits: "573012695248",
   whatsappDisplay: "+57 301 269 5248",
@@ -8,7 +9,7 @@ export const BLOQUE3_CONFIG = {
   githubDotRepoUrl: "https://github.com/bloque3/.github",
   formAction: "https://formsubmit.co/crincones578@gmail.com",
   formAjaxAction: "https://formsubmit.co/ajax/crincones578@gmail.com",
-  location: "Colombia · Remoto",
+  location: "Colombia · Colectivo Remoto",
 } as const;
 
 export function buildWhatsAppUrl(message: string): string {
@@ -42,15 +43,15 @@ export const WHATSAPP_INTENTS: WhatsAppIntent[] = [
     id: "idea-negocio",
     label: "Idea de negocio / App",
     tag: "MVP / Móvil / SaaS",
-    placeholder: "Ej. Validar una app o sistema a medida desde cero",
+    placeholder: "Ej. Validar una app o producto digital desde cero",
     defaultTopic: "revisar una idea de negocio y su viabilidad técnica",
   },
   {
-    id: "desarrollador",
-    label: "Hablar como developer",
-    tag: "Colaboración técnica",
-    placeholder: "Ej. Trabajo con Flutter / .NET / Python y quiero sumar",
-    defaultTopic: "colaborar como desarrollador en Bloque3",
+    id: "contribuir",
+    label: "Contribuir en un proyecto",
+    tag: "Open source / Juegos / Tools",
+    placeholder: "Ej. Me interesa aportar en herramientas dev o juegos",
+    defaultTopic: "contribuir en los proyectos de Bloque3",
   },
 ];
 
@@ -86,13 +87,13 @@ export const SERVICES: ServiceItem[] = [
   },
   {
     index: "03",
-    title: "Apps móviles y software propio",
+    title: "Laboratorio de productos propios",
     summary:
-      "Construimos aplicaciones Android/iOS y backends escalables desde el primer prototipo hasta publicación en tienda y arquitectura cloud.",
+      "Además de proyectos para clientes, incubamos nuestras propias herramientas para desarrolladores, juegos y aplicaciones móviles — algunas open source y otras privadas.",
     deliverables: [
-      "Apps Flutter offline-first o conectadas a la nube",
-      "APIs en .NET, Spring Boot o AWS SAM (serverless)",
-      "Acompañamiento completo hasta Google Play",
+      "Apps Flutter offline-first y utilidades de ingeniería",
+      "Backends en .NET, Spring Boot o AWS SAM (serverless)",
+      "Juegos, simuladores y prototipos iterativos",
     ],
   },
 ];
@@ -102,12 +103,12 @@ export interface ProjectItem {
   slug: "byte-lab" | "acumulapp" | "synapse-labs" | "agendate";
   name: string;
   category: string;
-  status: string;
+  visibility: "Código privado · Docs públicas" | "Código privado";
+  repoSlug: string;
   description: string;
   highlights: string[];
   stack: string[];
-  repoUrl: string;
-  extraLink?: {
+  publicUrl?: {
     label: string;
     url: string;
   };
@@ -118,8 +119,9 @@ export const PROJECTS: ProjectItem[] = [
     index: "01",
     slug: "byte-lab",
     name: "ByteLab",
-    category: "Herramienta móvil · Offline-first",
-    status: "En verificación Google Play",
+    category: "Herramienta dev · Offline-first",
+    visibility: "Código privado · Docs públicas",
+    repoSlug: "bloque3/byte-lab",
     description:
       "Estación de trabajo móvil 100 % offline para electrónica digital y arquitectura de computadores (com.bloque3.bytelab). Sin telemetría, sin red y pensada para estudio y laboratorio.",
     highlights: [
@@ -128,9 +130,8 @@ export const PROJECTS: ProjectItem[] = [
       "Inspector IEEE-754 y laboratorio de ALU con banderas CCR",
     ],
     stack: ["Flutter", "Dart", "CustomPainter", "Offline-first"],
-    repoUrl: "https://github.com/bloque3/byte-lab",
-    extraLink: {
-      label: "Privacidad y ficha",
+    publicUrl: {
+      label: "Ficha pública y privacidad",
       url: "https://github.com/bloque3/.github/blob/main/bytelab/README.md",
     },
   },
@@ -139,7 +140,8 @@ export const PROJECTS: ProjectItem[] = [
     slug: "acumulapp",
     name: "Acumulapp",
     category: "Producto comercial · Fidelización QR",
-    status: "Ecosistema completo",
+    visibility: "Código privado",
+    repoSlug: "bloque3/acumulapp",
     description:
       "Plataforma de fidelización digital con tarjetas de sellos y códigos QR para conectar clientes con comercios locales sin depender de tarjetas físicas.",
     highlights: [
@@ -148,14 +150,14 @@ export const PROJECTS: ProjectItem[] = [
       "Panel administrativo web y sitio público en Astro",
     ],
     stack: ["Flutter", "AWS SAM", "Python 3.12", "DynamoDB", "Astro"],
-    repoUrl: "https://github.com/bloque3/acumulapp-mobile",
   },
   {
     index: "03",
     slug: "synapse-labs",
     name: "Synapse Labs",
-    category: "Producto móvil / desktop · Simulación",
-    status: "Arquitectura v1 local / v2 cloud",
+    category: "Juego / Simulación · AI Startup",
+    visibility: "Código privado",
+    repoSlug: "bloque3/idle-game",
     description:
       "Idle tycoon de una startup de cómputo e inferencia IA con diorama isométrico 3D de oficina. Construido con arquitectura hexagonal lista para sincronización remota.",
     highlights: [
@@ -164,14 +166,14 @@ export const PROJECTS: ProjectItem[] = [
       "Árbol de I+D, flota GPU y contratos SLA dinámicos",
     ],
     stack: ["Flutter", "BLoC", "CustomPainter", "Arquitectura Hexagonal"],
-    repoUrl: "https://github.com/bloque3/idle-game",
   },
   {
     index: "04",
     slug: "agendate",
     name: "Agéndate (Appointify)",
     category: "Plataforma SaaS · Servicios y citas",
-    status: "Backend & SPA",
+    visibility: "Código privado",
+    repoSlug: "bloque3/appointments",
     description:
       "Sistema SaaS para agendamiento y gestión de citas en servicios domésticos e informales con reglas comerciales reales, disponibilidad y analítica por prestador.",
     highlights: [
@@ -180,6 +182,5 @@ export const PROJECTS: ProjectItem[] = [
       "Portal web SPA desarrollado en Angular 20",
     ],
     stack: ["C# .NET 10", "PostgreSQL", "Angular 20", "Docker"],
-    repoUrl: "https://github.com/bloque3/appointment-api",
   },
 ];
