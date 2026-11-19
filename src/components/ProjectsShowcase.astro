@@ -2,7 +2,7 @@
 import { PROJECTS, BLOQUE3_CONFIG } from "../data/bloque3";
 ---
 
-<section id="proyectos" class="bg-obsidian text-paper bg-draft-grid-dark border-b border-obsidian-rule">
+<section id="proyectos" class="bg-obsidian text-obsidian-ink bg-draft-grid-dark border-b border-obsidian-rule">
   <div class="max-w-7xl mx-auto px-5 sm:px-8 py-16 sm:py-24">
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-10 border-b border-obsidian-rule">
       <div class="space-y-3 max-w-2xl">
@@ -10,10 +10,10 @@ import { PROJECTS, BLOQUE3_CONFIG } from "../data/bloque3";
           <span class="inline-block w-2 h-2 bg-signal"></span>
           <span>02 / Portafolio de Productos &amp; Laboratorio</span>
         </p>
-        <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight text-paper">
+        <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight text-obsidian-ink">
           Herramientas dev, juegos y plataformas construidas desde cero.
         </h2>
-        <p class="text-sm text-paper/70 leading-relaxed max-w-xl">
+        <p class="text-sm text-obsidian-ink/75 leading-relaxed max-w-xl">
           Combinamos proyectos de código abierto con productos privados y comerciales según la naturaleza de cada iniciativa.
         </p>
       </div>
@@ -21,7 +21,7 @@ import { PROJECTS, BLOQUE3_CONFIG } from "../data/bloque3";
         href={BLOQUE3_CONFIG.githubOrgUrl}
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 font-mono text-xs px-4 py-2.5 border border-obsidian-rule hover:border-signal hover:text-signal text-paper transition-colors self-start md:self-auto"
+        class="inline-flex items-center gap-2 font-mono text-xs px-4 py-2.5 border border-obsidian-rule hover:border-signal hover:text-signal text-obsidian-ink transition-colors self-start md:self-auto"
       >
         <span>github.com/bloque3</span>
         <span aria-hidden="true">↗</span>
@@ -32,7 +32,7 @@ import { PROJECTS, BLOQUE3_CONFIG } from "../data/bloque3";
       {
         PROJECTS.map((project, idx) => (
           <article
-            class={`bg-obsidian-card/75 border-b border-obsidian-rule p-6 sm:p-8 flex flex-col justify-between gap-6 ${
+            class={`bg-obsidian-card/85 border-b border-obsidian-rule p-6 sm:p-8 flex flex-col justify-between gap-6 ${
               idx % 2 === 0 ? "md:border-r md:border-obsidian-rule" : ""
             }`}
           >
@@ -41,7 +41,7 @@ import { PROJECTS, BLOQUE3_CONFIG } from "../data/bloque3";
                 <span class="font-mono text-xs text-signal tracking-wider">
                   [{project.index}] // {project.category.toUpperCase()}
                 </span>
-                <span class="font-mono text-[11px] px-2.5 py-1 border border-obsidian-rule bg-obsidian-deep/70 text-paper/80">
+                <span class="font-mono text-[11px] px-2.5 py-1 border border-obsidian-rule bg-obsidian-deep/80 text-obsidian-ink/85">
                   {project.visibility}
                 </span>
               </div>
@@ -107,17 +107,17 @@ import { PROJECTS, BLOQUE3_CONFIG } from "../data/bloque3";
               </div>
 
               <div class="space-y-3">
-                <h3 class="font-display font-bold text-2xl text-paper tracking-tight">
+                <h3 class="font-display font-bold text-2xl text-obsidian-ink tracking-tight">
                   {project.name}
                 </h3>
-                <p class="text-sm sm:text-base text-paper/75 leading-relaxed">
+                <p class="text-sm sm:text-base text-obsidian-ink/80 leading-relaxed">
                   {project.description}
                 </p>
               </div>
 
               <ul class="space-y-1.5">
                 {project.highlights.map((item) => (
-                  <li class="flex items-start gap-2.5 text-sm text-paper/85">
+                  <li class="flex items-start gap-2.5 text-sm text-obsidian-ink/90">
                     <span class="font-mono text-signal shrink-0">—</span>
                     <span>{item}</span>
                   </li>
@@ -128,20 +128,20 @@ import { PROJECTS, BLOQUE3_CONFIG } from "../data/bloque3";
             <div class="pt-5 border-t border-obsidian-rule flex flex-wrap items-center justify-between gap-4">
               <div class="flex flex-wrap gap-1.5">
                 {project.stack.map((tech) => (
-                  <span class="font-mono text-[11px] px-2 py-1 bg-obsidian-deep border border-obsidian-rule text-paper/85">
+                  <span class="font-mono text-[11px] px-2 py-1 bg-obsidian-deep border border-obsidian-rule text-obsidian-ink/90">
                     {tech}
                   </span>
                 ))}
               </div>
 
               <div class="flex items-center gap-4">
-                <span class="font-mono text-[11px] text-paper/60">{project.repoSlug}</span>
+                <span class="font-mono text-[11px] text-obsidian-ink/65">{project.repoSlug}</span>
                 {project.publicUrl && (
                   <a
                     href={project.publicUrl.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="font-mono text-xs text-signal hover:text-paper transition-colors inline-flex items-center gap-1"
+                    class="font-mono text-xs text-signal hover:text-obsidian-ink transition-colors inline-flex items-center gap-1"
                   >
                     <span>{project.publicUrl.label}</span>
                     <span aria-hidden="true">↗</span>

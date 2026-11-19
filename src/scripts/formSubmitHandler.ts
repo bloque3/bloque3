@@ -53,7 +53,7 @@ export function attachBloque3Forms(config: FormHandlerConfig): void {
           form.reset();
           if (statusBox) {
             statusBox.className =
-              "p-4 border border-pine bg-signal/25 text-ink text-sm leading-relaxed";
+              "p-4 border border-pine bg-signal/20 text-ink text-sm leading-relaxed";
             statusBox.innerHTML = `<strong class="font-display block mb-1 text-pine">Solicitud enviada correctamente.</strong>Gracias por escribirnos. Te contactaremos pronto al correo o canal indicado.`;
           }
         } else {
@@ -62,8 +62,8 @@ export function attachBloque3Forms(config: FormHandlerConfig): void {
       } catch {
         if (statusBox) {
           statusBox.className =
-            "p-4 border border-red-700 bg-red-50 text-ink text-sm leading-relaxed";
-          statusBox.innerHTML = `<strong class="font-display block mb-1 text-red-800">No se pudo completar el envío automático.</strong>Escríbenos directo por <a href="${config.whatsappUrl}" target="_blank" rel="noopener noreferrer" class="underline font-medium">WhatsApp</a> o a <a href="mailto:${config.email}" class="underline font-medium">${config.email}</a> y lo revisamos de inmediato.`;
+            "p-4 border border-red-600/60 bg-red-500/10 text-ink text-sm leading-relaxed";
+          statusBox.innerHTML = `<strong class="font-display block mb-1 text-red-700 dark:text-red-300">No se pudo completar el envío automático.</strong>Escríbenos directo por <a href="${config.whatsappUrl}" target="_blank" rel="noopener noreferrer" class="underline font-medium">WhatsApp</a> o a <a href="mailto:${config.email}" class="underline font-medium">${config.email}</a> y lo revisamos de inmediato.`;
         }
       } finally {
         if (submitBtn) {

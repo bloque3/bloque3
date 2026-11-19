@@ -22,9 +22,11 @@ const baseUrl = import.meta.env.BASE_URL.endsWith("/")
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#0F3557" />
+    <meta name="theme-color" content="#F4F6F8" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#081B2D" media="(prefers-color-scheme: dark)" />
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
