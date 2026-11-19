@@ -59,7 +59,7 @@ const initialWaHref = buildWhatsAppUrl(initialPreview);
         data-whatsapp-digits={BLOQUE3_CONFIG.whatsappDigits}
         class="lg:col-span-5 bg-paper border border-rule-strong p-6 sm:p-7 space-y-6"
       >
-        <div class="flex items-center justify-between gap-3 pb-4 border-b border-rule">
+        <div class="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-rule">
           <div>
             <p class="font-mono text-[11px] tracking-wider uppercase text-ink-muted">
               Consulta rápida
@@ -68,7 +68,7 @@ const initialWaHref = buildWhatsAppUrl(initialPreview);
               Escríbenos por WhatsApp
             </h3>
           </div>
-          <span class="font-mono text-xs px-2.5 py-1 bg-obsidian text-signal">
+          <span class="font-mono text-xs px-2.5 py-1 bg-obsidian text-signal shrink-0 whitespace-nowrap">
             {BLOQUE3_CONFIG.whatsappDisplay}
           </span>
         </div>
@@ -222,4 +222,5 @@ const initialWaHref = buildWhatsAppUrl(initialPreview);
 
   nameInput?.addEventListener("input", updateComposer);
   detailInput?.addEventListener("input", updateComposer);
+  updateComposer();
 </script>

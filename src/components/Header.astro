@@ -124,5 +124,13 @@ const navItems = [
         mobileMenu.classList.add("hidden");
       });
     });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !mobileMenu.classList.contains("hidden")) {
+        toggleBtn.setAttribute("aria-expanded", "false");
+        mobileMenu.classList.add("hidden");
+        toggleBtn.focus();
+      }
+    });
   }
 </script>

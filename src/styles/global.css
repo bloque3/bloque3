@@ -71,6 +71,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 4.5rem;
     background-color: var(--surface-paper);
     color: var(--ink-primary);
     font-family: var(--font-sans);
