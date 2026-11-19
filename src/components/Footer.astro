@@ -1,0 +1,74 @@
+---
+import { BLOQUE3_CONFIG, buildWhatsAppUrl } from "../data/bloque3";
+
+const baseUrl = import.meta.env.BASE_URL.endsWith("/")
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+
+const year = new Date().getFullYear();
+const waUrl = buildWhatsAppUrl("Hola Bloque3, me gustaría ponerme en contacto con ustedes.");
+---
+
+<footer class="bg-obsidian text-paper mt-auto">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 py-12 sm:py-16">
+    <div class="grid md:grid-cols-12 gap-8 pb-10 border-b border-obsidian-rule">
+      <div class="md:col-span-5 space-y-4">
+        <div class="inline-flex items-center gap-3">
+          <svg width="24" height="24" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+            <rect width="64" height="64" rx="8" fill="#191B1F" />
+            <rect x="12" y="13" width="17" height="17" rx="2" fill="#F3F0E8" />
+            <rect x="35" y="13" width="17" height="17" rx="2" fill="#D9481E" />
+            <rect x="12" y="34" width="40" height="17" rx="2" fill="#F3F0E8" />
+          </svg>
+          <span class="font-display font-bold text-lg tracking-tight">BLOQUE3</span>
+        </div>
+        <p class="text-sm text-paper/70 max-w-sm leading-relaxed">
+          {BLOQUE3_CONFIG.tagline}
+        </p>
+      </div>
+
+      <div class="md:col-span-3 space-y-2.5">
+        <p class="font-mono text-xs uppercase tracking-wider text-paper/50">Secciones</p>
+        <ul class="space-y-2 text-sm text-paper/80">
+          <li><a href={`${baseUrl}#servicios`} class="hover:text-signal transition-colors">Servicios &amp; WhatsApp</a></li>
+          <li><a href={`${baseUrl}#proyectos`} class="hover:text-signal transition-colors">Proyectos</a></li>
+          <li><a href={`${baseUrl}#verificadores`} class="hover:text-signal transition-colors">Verificadores Google Play</a></li>
+          <li><a href={`${baseUrl}#desarrolladores`} class="hover:text-signal transition-colors">Desarrolladores</a></li>
+        </ul>
+      </div>
+
+      <div class="md:col-span-4 space-y-2.5">
+        <p class="font-mono text-xs uppercase tracking-wider text-paper/50">Contacto directo</p>
+        <ul class="space-y-2 text-sm font-mono text-paper/85">
+          <li>
+            <a href={waUrl} target="_blank" rel="noopener noreferrer" class="hover:text-signal transition-colors">
+              WhatsApp: {BLOQUE3_CONFIG.whatsappDisplay} ↗
+            </a>
+          </li>
+          <li>
+            <a href={`mailto:${BLOQUE3_CONFIG.email}`} class="hover:text-signal transition-colors">
+              {BLOQUE3_CONFIG.email}
+            </a>
+          </li>
+          <li>
+            <a href={BLOQUE3_CONFIG.githubOrgUrl} target="_blank" rel="noopener noreferrer" class="hover:text-signal transition-colors">
+              github.com/bloque3 ↗
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 font-mono text-xs text-paper/55">
+      <span>© {year} Bloque3 · Software &amp; Systems Engineering</span>
+      <a
+        href="https://github.com/bloque3/.github/blob/main/bytelab/PRIVACY_POLICY.md"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hover:text-paper transition-colors"
+      >
+        Política de Privacidad (ByteLab) ↗
+      </a>
+    </div>
+  </div>
+</footer>

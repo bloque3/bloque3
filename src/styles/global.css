@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-paper: #F3F0E8;
+  --color-paper-alt: #EAE5DA;
+  --color-ink: #111214;
+  --color-ink-muted: #52504A;
+  --color-rule: #CFC9BC;
+  --color-signal: #D9481E;
+  --color-signal-dark: #B63813;
+  --color-pine: #166534;
+  --color-obsidian: #111214;
+  --color-obsidian-card: #191B1F;
+  --color-obsidian-rule: #2A2D34;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: var(--color-signal);
+    color: #ffffff;
+  }
+}
+
+/* Subtle architectural blueprint grid background utility */
+.bg-draft-grid {
+  background-image:
+    linear-gradient(to right, rgba(17, 18, 20, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(17, 18, 20, 0.045) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.bg-draft-grid-dark {
+  background-image:
+    linear-gradient(to right, rgba(243, 240, 232, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(243, 240, 232, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Crisp custom focus ring */
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--color-signal);
+  outline-offset: 2px;
+}

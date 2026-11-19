@@ -1,0 +1,224 @@
+---
+import { BLOQUE3_CONFIG, SERVICES, WHATSAPP_INTENTS, buildWhatsAppUrl } from "../data/bloque3";
+
+const initialIntent = WHATSAPP_INTENTS[0];
+const initialPreview = `Hola Bloque3, me gustaría ${initialIntent.defaultTopic}.`;
+const initialWaHref = buildWhatsAppUrl(initialPreview);
+---
+
+<section id="servicios" class="border-b border-rule bg-paper-alt/55">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 py-16 sm:py-24">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-10 border-b border-rule">
+      <div class="space-y-3 max-w-2xl">
+        <p class="font-mono text-xs tracking-wider uppercase text-signal font-medium">
+          01 / Servicios &amp; Consulta Vía WhatsApp
+        </p>
+        <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight text-ink">
+          Automatización, sitios web y desarrollo a medida sin rodeos.
+        </h2>
+      </div>
+      <p class="text-sm text-ink-muted max-w-sm leading-relaxed">
+        Si tienes una empresa, un proceso repetitivo o una idea en mente, conversamos directo por WhatsApp para aterrizar tiempos y solución.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 pt-10 items-start">
+      <div class="lg:col-span-7 divide-y divide-rule border-t border-b border-rule bg-paper">
+        {
+          SERVICES.map((service) => (
+            <article class="p-6 sm:p-7 grid sm:grid-cols-12 gap-4 sm:gap-6">
+              <div class="sm:col-span-2">
+                <span class="font-mono text-xs font-medium text-signal tracking-wider">
+                  [{service.index}]
+                </span>
+              </div>
+              <div class="sm:col-span-10 space-y-3">
+                <h3 class="font-display font-bold text-xl text-ink tracking-tight">
+                  {service.title}
+                </h3>
+                <p class="text-sm sm:text-base text-ink-muted leading-relaxed">
+                  {service.summary}
+                </p>
+                <ul class="pt-1 space-y-1.5">
+                  {service.deliverables.map((item) => (
+                    <li class="flex items-start gap-2.5 text-sm text-ink">
+                      <span class="font-mono text-signal shrink-0">—</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+
+      <div
+        id="whatsapp-composer"
+        data-whatsapp-digits={BLOQUE3_CONFIG.whatsappDigits}
+        class="lg:col-span-5 bg-paper border border-ink p-6 sm:p-7 space-y-6"
+      >
+        <div class="flex items-center justify-between gap-3 pb-4 border-b border-rule">
+          <div>
+            <p class="font-mono text-[11px] tracking-wider uppercase text-ink-muted">
+              Consulta rápida
+            </p>
+            <h3 class="font-display font-bold text-xl text-ink mt-0.5">
+              Escríbenos por WhatsApp
+            </h3>
+          </div>
+          <span class="font-mono text-xs px-2.5 py-1 bg-paper-alt border border-rule text-ink">
+            {BLOQUE3_CONFIG.whatsappDisplay}
+          </span>
+        </div>
+
+        <div class="space-y-2.5">
+          <span class="block font-mono text-xs uppercase tracking-wider text-ink-muted">
+            1. ¿Qué necesitas?
+          </span>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2" id="wa-intent-group">
+            {
+              WHATSAPP_INTENTS.map((intent, idx) => (
+                <button
+                  type="button"
+                  data-intent-id={intent.id}
+                  data-default-topic={intent.defaultTopic}
+                  data-placeholder={intent.placeholder}
+                  aria-pressed={idx === 0 ? "true" : "false"}
+                  class={`wa-intent-btn text-left p-3 border transition-colors cursor-pointer ${
+                    idx === 0
+                      ? "border-ink bg-ink text-paper"
+                      : "border-rule bg-paper-alt/40 text-ink hover:border-ink"
+                  }`}
+                >
+                  <span class="block text-sm font-medium leading-tight">{intent.label}</span>
+                  <span
+                    class={`block font-mono text-[10px] mt-1 ${
+                      idx === 0 ? "text-paper/75" : "text-ink-muted"
+                    }`}
+                  >
+                    {intent.tag}
+                  </span>
+                </button>
+              ))
+            }
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-3">
+          <div>
+            <label for="wa-name" class="block font-mono text-xs uppercase tracking-wider text-ink-muted mb-1.5">
+              2. Tu nombre / empresa
+            </label>
+            <input
+              id="wa-name"
+              type="text"
+              placeholder="Opcional"
+              class="w-full px-3 py-2.5 text-sm bg-paper-alt/40 border border-rule text-ink placeholder:text-ink-muted/70"
+            />
+          </div>
+          <div>
+            <label for="wa-detail" class="block font-mono text-xs uppercase tracking-wider text-ink-muted mb-1.5">
+              3. Detalle breve
+            </label>
+            <input
+              id="wa-detail"
+              type="text"
+              placeholder={initialIntent.placeholder}
+              class="w-full px-3 py-2.5 text-sm bg-paper-alt/40 border border-rule text-ink placeholder:text-ink-muted/70"
+            />
+          </div>
+        </div>
+
+        <div class="bg-paper-alt border border-rule p-3.5 space-y-1.5">
+          <span class="block font-mono text-[10px] uppercase tracking-wider text-ink-muted">
+            Vista previa del mensaje
+          </span>
+          <p id="wa-preview-text" class="font-mono text-xs text-ink leading-relaxed break-words">
+            {initialPreview}
+          </p>
+        </div>
+
+        <div class="space-y-3">
+          <a
+            id="wa-launch-link"
+            href={initialWaHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full inline-flex items-center justify-center gap-2.5 bg-signal hover:bg-signal-dark text-white font-medium text-sm sm:text-base px-5 py-3.5 transition-colors"
+          >
+            <span>Abrir chat en WhatsApp</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+          <p class="font-mono text-[11px] text-ink-muted text-center">
+            O escribe directo a{" "}
+            <a href={`mailto:${BLOQUE3_CONFIG.email}`} class="text-ink underline underline-offset-2">
+              {BLOQUE3_CONFIG.email}
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const composer = document.getElementById("whatsapp-composer");
+  const whatsappDigits = composer?.dataset.whatsappDigits || "573012695248";
+  const buttons = document.querySelectorAll<HTMLButtonElement>(".wa-intent-btn");
+  const nameInput = document.getElementById("wa-name") as HTMLInputElement | null;
+  const detailInput = document.getElementById("wa-detail") as HTMLInputElement | null;
+  const previewEl = document.getElementById("wa-preview-text");
+  const launchLink = document.getElementById("wa-launch-link") as HTMLAnchorElement | null;
+
+  let selectedTopic = "automatizar un proceso en mi empresa";
+
+  function updateComposer() {
+    const name = nameInput ? nameInput.value.trim() : "";
+    const detail = detailInput ? detailInput.value.trim() : "";
+
+    let message = name
+      ? `Hola Bloque3, soy ${name} y me gustaría ${selectedTopic}.`
+      : `Hola Bloque3, me gustaría ${selectedTopic}.`;
+
+    if (detail) {
+      message += ` Detalle: ${detail}`;
+    }
+
+    if (previewEl) {
+      previewEl.textContent = message;
+    }
+    if (launchLink) {
+      launchLink.href = `https://wa.me/${whatsappDigits}?text=${encodeURIComponent(message)}`;
+    }
+  }
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      buttons.forEach((other) => {
+        other.setAttribute("aria-pressed", "false");
+        other.className =
+          "wa-intent-btn text-left p-3 border transition-colors cursor-pointer border-rule bg-paper-alt/40 text-ink hover:border-ink";
+        const sub = other.querySelector("span:last-child");
+        if (sub) sub.className = "block font-mono text-[10px] mt-1 text-ink-muted";
+      });
+
+      btn.setAttribute("aria-pressed", "true");
+      btn.className =
+        "wa-intent-btn text-left p-3 border transition-colors cursor-pointer border-ink bg-ink text-paper";
+      const sub = btn.querySelector("span:last-child");
+      if (sub) sub.className = "block font-mono text-[10px] mt-1 text-paper/75";
+
+      const topic = btn.getAttribute("data-default-topic");
+      const placeholder = btn.getAttribute("data-placeholder");
+      if (topic) selectedTopic = topic;
+      if (detailInput && placeholder) {
+        detailInput.placeholder = placeholder;
+      }
+      updateComposer();
+    });
+  });
+
+  nameInput?.addEventListener("input", updateComposer);
+  detailInput?.addEventListener("input", updateComposer);
+</script>

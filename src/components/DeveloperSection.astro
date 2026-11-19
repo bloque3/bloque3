@@ -1,0 +1,195 @@
+---
+import { BLOQUE3_CONFIG, buildWhatsAppUrl } from "../data/bloque3";
+
+const devWhatsAppUrl = buildWhatsAppUrl(
+  "Hola Bloque3, soy desarrollador y me gustaría hablar para colaborar en proyectos o ideas."
+);
+---
+
+<section id="desarrolladores" class="border-b border-rule bg-paper-alt/55">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 py-16 sm:py-24">
+    <div class="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+      <div class="lg:col-span-5 space-y-6">
+        <div class="space-y-3">
+          <p class="font-mono text-xs tracking-wider uppercase text-signal font-medium">
+            04 / Desarrolladores &amp; Ideas de Negocio
+          </p>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl tracking-tight text-ink">
+            ¿Construyes software o quieres proponer un proyecto juntos?
+          </h2>
+        </div>
+
+        <p class="text-base text-ink-muted leading-relaxed">
+          Bloque3 nació para unir amigos y desarrolladores con ganas de sacar productos reales adelante. Si programas, diseñas o tienes una idea con potencial comercial, hablemos.
+        </p>
+
+        <div class="space-y-3 pt-1">
+          <p class="font-mono text-xs uppercase tracking-wider text-ink-muted">
+            Frentes técnicos habituales
+          </p>
+          <div class="flex flex-wrap gap-2">
+            {
+              [
+                "Flutter / Dart",
+                ".NET / C#",
+                "Java / Spring Boot",
+                "Python / AWS SAM",
+                "Astro / Angular",
+                "n8n / Automatización",
+                "PostgreSQL / DynamoDB",
+              ].map((item) => (
+                <span class="font-mono text-xs px-2.5 py-1 bg-paper border border-rule text-ink">
+                  {item}
+                </span>
+              ))
+            }
+          </div>
+        </div>
+
+        <div class="pt-3 border-t border-rule">
+          <p class="text-sm text-ink-muted mb-3">
+            ¿Prefieres escribir directamente sin llenar el formulario?
+          </p>
+          <a
+            href={devWhatsAppUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 font-mono text-xs px-4 py-2.5 border border-ink text-ink hover:bg-ink hover:text-paper transition-colors"
+          >
+            <span>Escribir al WhatsApp {BLOQUE3_CONFIG.whatsappDisplay}</span>
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7 bg-paper border border-ink p-6 sm:p-8">
+        <div class="pb-5 mb-6 border-b border-rule flex items-center justify-between gap-4">
+          <h3 class="font-display font-bold text-xl text-ink">
+            Postulación para desarrolladores
+          </h3>
+          <span class="font-mono text-[11px] uppercase tracking-wider text-ink-muted">
+            COLABORACIÓN / EQUIPO
+          </span>
+        </div>
+
+        <form
+          data-bloque3-form
+          action={BLOQUE3_CONFIG.formAction}
+          method="POST"
+          class="space-y-5"
+        >
+          <input type="hidden" name="_subject" value="[Bloque3] Postulación Desarrollador / Idea" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off" />
+
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label for="dev-name" class="block font-mono text-xs uppercase tracking-wider text-ink-muted mb-1.5">
+                Nombre *
+              </label>
+              <input
+                id="dev-name"
+                name="nombre"
+                type="text"
+                required
+                placeholder="Tu nombre"
+                class="w-full px-3.5 py-2.5 bg-paper-alt/40 border border-rule text-sm text-ink"
+              />
+            </div>
+
+            <div>
+              <label for="dev-email" class="block font-mono text-xs uppercase tracking-wider text-ink-muted mb-1.5">
+                Correo electrónico *
+              </label>
+              <input
+                id="dev-email"
+                name="email"
+                type="email"
+                required
+                placeholder="nombre@correo.com"
+                class="w-full px-3.5 py-2.5 bg-paper-alt/40 border border-rule text-sm text-ink"
+              />
+            </div>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label for="dev-role" class="block font-mono text-xs uppercase tracking-wider text-ink-muted mb-1.5">
+                Área principal *
+              </label>
+              <select
+                id="dev-role"
+                name="especialidad"
+                required
+                class="w-full px-3.5 py-2.5 bg-paper-alt/40 border border-rule text-sm text-ink"
+              >
+                <option value="">Selecciona una opción</option>
+                <option value="Backend / APIs / Cloud">Backend / APIs / Cloud</option>
+                <option value="Mobile (Flutter / Android)">Mobile (Flutter / Android)</option>
+                <option value="Frontend / Web (Astro / Angular / React)">Frontend / Web (Astro / Angular / React)</option>
+                <option value="Automatización (n8n / Python / IA)">Automatización (n8n / Python / IA)</option>
+                <option value="Diseño UI/UX">Diseño UI/UX</option>
+                <option value="Idea de negocio / Producto">Tengo una idea de negocio</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="dev-whatsapp" class="block font-mono text-xs uppercase tracking-wider text-ink-muted mb-1.5">
+                WhatsApp (opcional)
+              </label>
+              <input
+                id="dev-whatsapp"
+                name="whatsapp"
+                type="text"
+                placeholder="+57 3XX XXX XXXX"
+                class="w-full px-3.5 py-2.5 bg-paper-alt/40 border border-rule text-sm text-ink"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label for="dev-github" class="block font-mono text-xs uppercase tracking-wider text-ink-muted mb-1.5">
+              GitHub, portafolio o LinkedIn
+            </label>
+            <input
+              id="dev-github"
+              name="portafolio"
+              type="url"
+              placeholder="https://github.com/tu-usuario"
+              class="w-full px-3.5 py-2.5 bg-paper-alt/40 border border-rule text-sm text-ink"
+            />
+          </div>
+
+          <div>
+            <label for="dev-message" class="block font-mono text-xs uppercase tracking-wider text-ink-muted mb-1.5">
+              ¿Qué manejas y en qué te gustaría participar? *
+            </label>
+            <textarea
+              id="dev-message"
+              name="mensaje"
+              rows="3"
+              required
+              placeholder="Cuéntanos brevemente tu stack, proyectos previos o la idea que quieres construir."
+              class="w-full px-3.5 py-2.5 bg-paper-alt/40 border border-rule text-sm text-ink"
+            ></textarea>
+          </div>
+
+          <div data-form-status class="hidden" role="status" aria-live="polite"></div>
+
+          <div class="pt-1 flex flex-wrap items-center justify-between gap-4">
+            <button
+              type="submit"
+              class="inline-flex items-center gap-2 bg-signal hover:bg-signal-dark text-white font-medium text-sm sm:text-base px-6 py-3.5 transition-colors cursor-pointer"
+            >
+              Enviar postulación →
+            </button>
+            <span class="font-mono text-[11px] text-ink-muted">
+              Respuesta directa a tu correo o WhatsApp
+            </span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

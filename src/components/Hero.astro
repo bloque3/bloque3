@@ -1,0 +1,122 @@
+---
+import { BLOQUE3_CONFIG, buildWhatsAppUrl } from "../data/bloque3";
+
+const baseUrl = import.meta.env.BASE_URL.endsWith("/")
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+
+const directWa = buildWhatsAppUrl(
+  "Hola, vengo desde la web de Bloque3. Me gustaría conversar sobre un proyecto o servicio."
+);
+
+const entryRoutes = [
+  {
+    code: "01 / EMPRESAS",
+    title: "Automatizar un proceso o crear sitio web",
+    detail: "Atención directa por WhatsApp para cotizar y definir alcance.",
+    href: `${baseUrl}#servicios`,
+  },
+  {
+    code: "02 / GOOGLE PLAY",
+    title: "Ser verificador (tester) de apps",
+    detail: "Únete a pruebas cerradas de 14 días para nuestros lanzamientos.",
+    href: `${baseUrl}#verificadores`,
+  },
+  {
+    code: "03 / EQUIPO",
+    title: "Postularme como desarrollador",
+    detail: "Colabora en productos propios, proyectos web o ideas de negocio.",
+    href: `${baseUrl}#desarrolladores`,
+  },
+];
+---
+
+<section class="relative bg-draft-grid border-b border-rule">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 pt-12 pb-16 sm:pt-18 sm:pb-24">
+    <div class="flex flex-wrap items-center justify-between gap-4 pb-8 border-b border-rule">
+      <div class="inline-flex items-center gap-2.5 font-mono text-xs tracking-wider uppercase text-ink-muted">
+        <span class="inline-block w-2 h-2 rounded-full bg-pine"></span>
+        <span>{BLOQUE3_CONFIG.location}</span>
+      </div>
+      <div class="font-mono text-xs text-ink-muted">
+        4 PRODUCTOS EN PORTAFOLIO · CONSULTA DIRECTA
+      </div>
+    </div>
+
+    <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 pt-10 lg:pt-14 items-start">
+      <div class="lg:col-span-7 space-y-7">
+        <h1 class="font-display font-bold text-4xl sm:text-5xl lg:text-[3.5rem] leading-[1.03] tracking-[-0.03em] text-ink">
+          Construimos software propio, automatizamos procesos y diseñamos sitios web que sí funcionan.
+        </h1>
+
+        <p class="text-base sm:text-lg text-ink-muted max-w-2xl leading-relaxed">
+          <strong class="text-ink font-medium">Bloque3</strong> es un colectivo de ingeniería y estudio digital.
+          Trabajamos con empresas que quieren dejar tareas manuales atrás o lanzar su sitio web,
+          mientras desarrollamos aplicaciones móviles y plataformas desde cero.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-3 pt-1">
+          <a
+            href={`${baseUrl}#servicios`}
+            class="inline-flex items-center gap-2.5 bg-signal hover:bg-signal-dark text-white font-medium text-sm sm:text-base px-6 py-3.5 transition-colors"
+          >
+            <span>Armar consulta por WhatsApp</span>
+            <span aria-hidden="true">→</span>
+          </a>
+          <a
+            href={`${baseUrl}#proyectos`}
+            class="inline-flex items-center gap-2 border border-ink text-ink hover:bg-ink hover:text-paper font-medium text-sm sm:text-base px-6 py-3.5 transition-colors"
+          >
+            <span>Ver proyectos (04)</span>
+          </a>
+          <a
+            href={directWa}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1.5 font-mono text-xs text-ink-muted hover:text-ink underline underline-offset-4 px-2 py-2"
+          >
+            {BLOQUE3_CONFIG.whatsappDisplay} ↗
+          </a>
+        </div>
+      </div>
+
+      <aside class="lg:col-span-5 bg-paper border border-ink">
+        <div class="px-5 py-3.5 border-b border-ink bg-paper-alt flex items-center justify-between">
+          <span class="font-mono text-xs font-medium tracking-wider uppercase text-ink">
+            Rutas rápidas
+          </span>
+          <span class="font-mono text-[11px] text-ink-muted">BLOQUE3 // ACCESS</span>
+        </div>
+
+        <div class="divide-y divide-rule">
+          {
+            entryRoutes.map((route) => (
+              <a
+                href={route.href}
+                class="group block p-5 hover:bg-paper-alt/80 transition-colors"
+              >
+                <div class="flex items-start justify-between gap-4">
+                  <div class="space-y-1">
+                    <span class="block font-mono text-[11px] tracking-wider uppercase text-signal font-medium">
+                      {route.code}
+                    </span>
+                    <h2 class="font-display font-semibold text-base sm:text-lg text-ink leading-snug">
+                      {route.title}
+                    </h2>
+                    <p class="text-sm text-ink-muted leading-snug">{route.detail}</p>
+                  </div>
+                  <span
+                    aria-hidden="true"
+                    class="font-mono text-lg text-ink-muted group-hover:text-signal group-hover:translate-x-1 transition-all shrink-0 pt-1"
+                  >
+                    →
+                  </span>
+                </div>
+              </a>
+            ))
+          }
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>

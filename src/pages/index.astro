@@ -1,0 +1,40 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import ServicesWhatsApp from "../components/ServicesWhatsApp.astro";
+import ProjectsShowcase from "../components/ProjectsShowcase.astro";
+import VerifierSection from "../components/VerifierSection.astro";
+import DeveloperSection from "../components/DeveloperSection.astro";
+import Footer from "../components/Footer.astro";
+import { BLOQUE3_CONFIG, buildWhatsAppUrl } from "../data/bloque3";
+
+const fallbackWaUrl = buildWhatsAppUrl(
+  "Hola Bloque3, intenté enviar el formulario web y prefiero escribirles por aquí."
+);
+---
+
+<Layout>
+  <Header />
+  <main id="bloque3-app" data-ajax-endpoint={BLOQUE3_CONFIG.formAjaxAction} data-wa-fallback={fallbackWaUrl} data-email={BLOQUE3_CONFIG.email}>
+    <Hero />
+    <ServicesWhatsApp />
+    <ProjectsShowcase />
+    <VerifierSection />
+    <DeveloperSection />
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  import { attachBloque3Forms } from "../scripts/formSubmitHandler";
+
+  const root = document.getElementById("bloque3-app");
+  if (root) {
+    attachBloque3Forms({
+      ajaxEndpoint: root.dataset.ajaxEndpoint || "",
+      whatsappUrl: root.dataset.waFallback || "",
+      email: root.dataset.email || "",
+    });
+  }
+</script>
